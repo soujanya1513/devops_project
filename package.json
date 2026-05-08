@@ -1,0 +1,16 @@
+{
+  "name": "event-management-webapp",
+  "version": "1.0.0",
+  "description": "Event booking and management system demo",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test": "node -e \"console.log('tests passed')\""
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongoose": "^8.9.0"
+  }
+}

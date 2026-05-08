@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard | EventHub</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="hero hero-compact">
+        <div class="hero-top">
+          <div class="brand">EventHub</div>
+          <nav class="site-nav">
+            <a href="/index.html">Home</a>
+            <a href="/about.html">About</a>
+            <a href="/dashboard.html">Dashboard</a>
+          </nav>
+        </div>
+        <h1>Organizer Dashboard</h1>
+        <p class="subtitle">
+          Quick analytics to keep track of demand and seat usage.
+        </p>
+      </header>
+
+      <section class="band">
+        <div class="band-inner">
+          <div>
+            <p class="section-label">Live overview</p>
+            <h2 class="section-title">Today at a glance</h2>
+            <p class="muted">
+              These stats update from the same backend used by the booking page.
+            </p>
+          </div>
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-number" id="stat-total-events">0</div>
+              <div class="stat-title">Total events</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number" id="stat-total-seats">0</div>
+              <div class="stat-title">Total seats</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number" id="stat-booked-seats">0</div>
+              <div class="stat-title">Booked seats</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number" id="stat-available-seats">0</div>
+              <div class="stat-title">Available seats</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <main class="grid">
+        <section class="card">
+          <h2>Insights</h2>
+          <p class="muted">
+            Use this space to plan promotions, close full events, or increase
+            capacity where demand is high.
+          </p>
+        </section>
+        <section class="card">
+          <h2>Next actions</h2>
+          <ul class="muted">
+            <li>Review events with low availability.</li>
+            <li>Publish reminders to attendees.</li>
+            <li>Close registrations for full events.</li>
+          </ul>
+        </section>
+      </main>
+
+      <footer class="footer">Data refreshes on page load.</footer>
+    </div>
+
+    <script src="/js/dashboard.js"></script>
+  </body>
+</html>

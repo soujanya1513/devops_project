@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EventHub | Event Booking and Management</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="hero">
+        <div class="hero-top">
+          <div class="brand">EventHub</div>
+          <nav class="site-nav">
+            <a href="/index.html">Home</a>
+            <a href="/about.html">About</a>
+            <a href="/dashboard.html">Dashboard</a>
+          </nav>
+        </div>
+        <h1>Event Booking and Management</h1>
+        <p class="subtitle">
+          Plan, publish, and book events with a lightweight Node.js platform.
+        </p>
+        <div class="hero-actions">
+          <a class="btn" href="#create">Create event</a>
+          <a class="btn ghost" href="#schedule">View schedule</a>
+        </div>
+        <div class="status">
+          Status: <span id="health-status">Checking...</span>
+        </div>
+      </header>
+
+      <main class="grid">
+        <section class="card" id="create">
+          <h2>Create Event</h2>
+          <form id="event-form">
+            <label>
+              Event name
+              <input type="text" name="name" placeholder="e.g. Cloud Summit" required />
+            </label>
+            <label>
+              Date
+              <input type="date" name="date" required />
+            </label>
+            <label>
+              Location
+              <input type="text" name="location" placeholder="e.g. Hyderabad" required />
+            </label>
+            <label>
+              Capacity
+              <input type="number" name="capacity" min="1" value="50" required />
+            </label>
+            <button type="submit">Add event</button>
+          </form>
+        </section>
+
+        <section class="card" id="schedule">
+          <div class="card-head">
+            <h2>Upcoming Events</h2>
+            <p class="hint">Click book to reserve a seat.</p>
+          </div>
+          <div id="events-empty" class="empty">No events yet. Create one.</div>
+          <div id="events-list" class="events"></div>
+        </section>
+      </main>
+
+      <section class="band">
+        <div class="band-inner">
+          <div>
+            <p class="section-label">Organizer toolkit</p>
+            <h2 class="section-title">Run events with calm control</h2>
+            <p class="muted">
+              Keep attendee counts, schedules, and bookings in one place. The UI
+              stays focused so teams can move fast without getting lost.
+            </p>
+            <div class="pill-list">
+              <span class="pill">Fast event creation</span>
+              <span class="pill">Live booking count</span>
+              <span class="pill">One-click cleanup</span>
+            </div>
+          </div>
+          <div class="stats">
+            <div class="stat">
+              <span class="stat-value">120+</span>
+              <span class="stat-label">Seats tracked</span>
+            </div>
+            <div class="stat">
+              <span class="stat-value">8</span>
+              <span class="stat-label">Active events</span>
+            </div>
+            <div class="stat">
+              <span class="stat-value">2 min</span>
+              <span class="stat-label">Setup time</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="steps">
+        <div class="steps-head">
+          <h2 class="section-title">How it works</h2>
+          <p class="muted">A simple flow for teams and attendees.</p>
+        </div>
+        <div class="steps-grid">
+          <div class="step">
+            <h3>1. Create</h3>
+            <p>Add a new event with date, location, and capacity.</p>
+          </div>
+          <div class="step">
+            <h3>2. Share</h3>
+            <p>Publish the schedule so attendees can book a seat.</p>
+          </div>
+          <div class="step">
+            <h3>3. Track</h3>
+            <p>Monitor bookings in real time and close events as needed.</p>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        Built for CI/CD demo on AWS EC2 using Jenkins, Docker, and Ansible.
+      </footer>
+    </div>
+
+    <script src="/js/app.js"></script>
+  </body>
+</html>
