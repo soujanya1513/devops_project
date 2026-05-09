@@ -1,6 +1,6 @@
 # Event Booking and Management System (AWS + CI/CD)
 
-## 1) Problem Statement & Objective
+## 1) Problem Statement & Objectives
 Build a full-stack event booking and management web app with a DevOps CI/CD pipeline. The system should allow admins to create events and users to book seats, while a Jenkins pipeline builds, containerizes, and deploys the app to AWS EC2.
 
 ## 2) Architecture Understanding (Workflow and Tool Integration)
