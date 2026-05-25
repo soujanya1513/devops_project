@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "dev": "node server.js",
-    "test": "node -e \"console.log('tests passed')\""
+    "test": "jest"
   },
   "dependencies": {
     "dotenv": "^16.4.5",
