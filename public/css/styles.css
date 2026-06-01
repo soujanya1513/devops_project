@@ -283,6 +283,13 @@ button:hover {
   box-shadow: none;
 }
 
+.event-actions button[disabled] {
+  background: #b8c0c6;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
 .empty {
   padding: 16px;
   border-radius: 16px;

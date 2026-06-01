@@ -91,8 +91,8 @@ app.post("/api/events/:id/book", async (req, res) => {
     return res.status(404).json({ error: "event not found" });
   }
 
-  if (event.booked >= event.capacity) {
-    return res.status(409).json({ error: "event is full" });
+  if (event.booked >= 1) {
+    return res.status(409).json({ error: "event already booked" });
   }
 
   event.booked += 1;

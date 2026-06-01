@@ -28,16 +28,23 @@ const renderEvents = (events) => {
   eventsEmpty.style.display = "none";
   eventsList.innerHTML = events
     .map((eventItem) => {
+      const isBooked = Number(eventItem.booked) >= 1;
+      const bookingLabel = isBooked ? "Booked" : "Available";
+      const buttonLabel = isBooked ? "Already booked" : "Book seat";
+      const disabledAttr = isBooked ? "disabled" : "";
+
       return `
         <article class="event">
           <div class="event-title">${eventItem.name}</div>
           <div class="event-meta">
             <span>${eventItem.date}</span>
             <span>${eventItem.location}</span>
-            <span>${eventItem.booked}/${eventItem.capacity} booked</span>
+            <span>${bookingLabel}</span>
           </div>
           <div class="event-actions">
-            <button data-action="book" data-id="${eventItem.id}">Book seat</button>
+            <button data-action="book" data-id="${eventItem.id}" ${disabledAttr}>
+              ${buttonLabel}
+            </button>
             <button class="secondary" data-action="delete" data-id="${eventItem.id}">
               Delete
             </button>
@@ -94,6 +101,9 @@ eventForm.addEventListener("submit", async (event) => {
 eventsList.addEventListener("click", async (event) => {
   const target = event.target.closest("button");
   if (!target) {
+    return;
+  }
+  if (target.disabled) {
     return;
   }
   const action = target.dataset.action;
