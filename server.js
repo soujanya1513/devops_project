@@ -33,6 +33,8 @@ const normalizeEvent = (eventDoc) => ({
   booked: eventDoc.booked
 });
 
+const escapeRegex = (value) => value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -67,10 +69,24 @@ app.post("/api/events", async (req, res) => {
     return res.status(400).json({ error: "capacity must be a positive number" });
   }
 
+  const normalizedName = String(name).trim();
+  const normalizedLocation = String(location).trim();
+  const normalizedDate = String(date).trim();
+
+  const existingEvent = await Event.findOne({
+    name: { $regex: new RegExp(`^${escapeRegex(normalizedName)}$`, "i") },
+    date: normalizedDate,
+    location: { $regex: new RegExp(`^${escapeRegex(normalizedLocation)}$`, "i") }
+  });
+
+  if (existingEvent) {
+    return res.status(409).json({ error: "event already exists" });
+  }
+
   const newEvent = await Event.create({
-    name: String(name).trim(),
-    date: String(date),
-    location: String(location).trim(),
+    name: normalizedName,
+    date: normalizedDate,
+    location: normalizedLocation,
     capacity: parsedCapacity,
     booked: 0
   });
